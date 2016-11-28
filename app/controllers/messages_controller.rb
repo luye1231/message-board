@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to root_path , notice: 'メッセージを保存しました'
+      redirect_to root_path , notice: 'メッセージを投稿しました'
     else
       # メッセージが保存できなかった時
       @messages = Message.all
