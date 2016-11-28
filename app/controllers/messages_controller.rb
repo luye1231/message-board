@@ -1,9 +1,5 @@
 class MessagesController < ApplicationController
-  def index
-    @message = Message.new
-    @messages = Message.all
-  end
-
+  # 中略
   def create
     @message = Message.new(message_params)
     if @message.save
