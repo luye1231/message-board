@@ -6,40 +6,12 @@
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
+      <span class="label label-default"><%= message.age.present? ? "#{message.age} 歳" : "年齢不詳" %></span>
+      <br>
       <%= message.body %>
       <br>
     <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-offset-2 col-sm-8">
-    <%= form_for(@message) do |f| %>
-      <% if @message.errors.present? %>
-        <div class="alert alert-danger">
-          <%= alert %>
-          <ul>
-            <% @message.errors.full_messages.each do |full_message| %>
-              <li>
-                <%= full_message %>
-              </li>
-            <% end %> 
-          </ul>
-        </div>
-      <% end %>
-    
-      <div class="form-group">
-        <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', placeholder: '入力して下さい' %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :body, '内容' %>
-        <%= f.text_area :body, class: 'form-control', placeholder: 'コメントを記載してください' %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.submit class: "btn btn-sm btn-primary" %>
-      </div>
-    <% end %>
-  </div>
+<%= render 'form' %>
