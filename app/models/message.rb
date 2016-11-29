@@ -6,5 +6,5 @@ class Message < ActiveRecord::Base
   
   validates :age, numericality: { only_integer: true,
                                   greater_than_or_equal_to: 0, less_than_or_equal_to: 150
-                                }, allow_blank: true
+                                }, presence: true
 end
